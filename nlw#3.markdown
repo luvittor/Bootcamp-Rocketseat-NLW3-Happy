@@ -1,8 +1,6 @@
 NLW#3 (NEXT LEVEL WEEK)
 
-###############
 # Workshop #1 #
-###############
 
 	Environment
 
@@ -230,9 +228,7 @@ NLW#3 (NEXT LEVEL WEEK)
 					
 						# yarn start
 			
-###############
 # Workshop #2 #
-###############
 
 	**BACK END  C:\Users\lucia\Desktop\dev\NLW#3\aulas\backend**
 	
