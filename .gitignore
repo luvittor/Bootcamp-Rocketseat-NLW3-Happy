@@ -1,0 +1,5 @@
+
+backend/uploads
+backend/src/database/database.sqlite
+*.sqlite
+
