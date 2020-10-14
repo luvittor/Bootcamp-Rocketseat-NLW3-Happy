@@ -9,16 +9,31 @@ NLW#3 (NEXT LEVEL WEEK)
 		1. Open Powershell as Adm
 
 		2. Changed permissions Windows
+		
+			# Set-ExecutionPolicy RemoteSigned
+			# Get-ExecutionPolicy
 
 		3. *Chocolatey* (Package manager)
+		
+			# Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+			# choco /?
 
 		4. *Node JS* (JavaScript runtime)
+		
+			# cinst nodejs-lts
+			# refreshenv
+			# node -v
 
 		5. *NPM* (Node package manager)
+		
+			# npm -v
 
 		6. *Yarn* (dependency/package manager for Node modules)
 		
 			"its like npm but better"
+			
+			# cinst yarn
+			# yarn --version
 		
 	Concepts
 
