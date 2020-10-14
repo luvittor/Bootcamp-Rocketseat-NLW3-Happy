@@ -613,4 +613,9 @@ by Rocketseat
 
 		# yarn typeorm migration:run
 		
+		Library to add file upload
+		
+		# yarn add multer
+		# yarn add @types/multer -D
+		
 		
