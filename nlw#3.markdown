@@ -1,4 +1,32 @@
-NLW#3 (NEXT LEVEL WEEK)
+Brazilian Bootcamp
+NLW#3 (NEXT LEVEL WEEK #3)
+by Rocketseat
+
+# My Impressions #
+
+	This bootcamp was moderate hard to follow.
+	
+	I didn't pay to much attention to the backend because my main goal with this Bootcamp is to learn frontend with React.
+	
+	I feel a bit old school. My background is ASP.NET/PHP/HTML/JAVASCRIPT/Java/DotNet from 90s/2000s.
+	
+	In the past years (2010s) I programmed less and when I did it was like in the old days and more backends.
+	
+	But I am adapting!
+	
+	Today it seems it's all about packages and parameters and less coding itself.
+	
+	JavaScript nowadays is really different from 90s.
+
+	In the old days when I needed something in PHP I had to write myself or look for solutions in foruns or code snippets repositories.
+	
+	There was no app to manage packages or versioning.
+	
+	We have to download the packages ourselves looking for it on different sources after googling. And you sometimes you had to audit the code because the source may not seem trustworth.
+	
+	We had several copies of our source code files side by side like: user.php and user.php.old and user.php.old.old (LOL).
+	
+	Nowadays I feel like coding it is like a LEGO toy, in the past it was more like collage.
 
 # Workshop #1 #
 
@@ -357,6 +385,178 @@ NLW#3 (NEXT LEVEL WEEK)
 						"typeorm" : "ts-node-dev ./node_modules/typeorm/cli.js"
 					},
 		
-		* 
-
+		* creating migrations
+		
+			add migrations, entities and cli to ormconfig.json
+				
+			{
+				"type": "sqlite",
+				"database": "./src/database/database.sqlite",
+				"migrations": [
+					"./src/database/migrations/*.ts"
+				],
+				"entities": [
+					"./src/models/*.ts"
+				],
+				"cli": {
+					"migrationsDir": "./src/database/migrations"
+				}
+			} 			
 			
+			# yarn typeorm migration:create -n create_orphanages
+			
+			this command should create a file inside migrations called create orphanages
+			
+				*ORIGINAL*
+
+					import {MigrationInterface, QueryRunner} from "typeorm";
+
+					export class createOrphanages1602643409203 implements MigrationInterface {
+
+						public async up(queryRunner: QueryRunner): Promise<void> {
+
+						}
+
+						public async down(queryRunner: QueryRunner): Promise<void> {
+
+						}
+
+					}
+				
+				*MODIFIED*
+				
+					import {MigrationInterface, QueryRunner, Table} from "typeorm";
+
+					export class createOrphanages1602643409203 implements MigrationInterface {
+
+						public async up(queryRunner: QueryRunner): Promise<void> {
+
+							await queryRunner.createTable(new Table({
+								name: "orphanages",
+								columns: [
+									{
+										name: "id",
+										type: 'integer',
+										unsigned: true,
+										isPrimary: true, 
+										isGenerated: true,
+										generationStrategy: 'increment',
+									},
+									{
+										name: 'name',
+										type: 'varchar'
+									},
+									{
+										name: 'latitude',
+										type: 'decimal',
+										scale: 10,
+										precision: 2
+									},
+									{
+										name: 'longitude',
+										type: 'decimal',
+										scale: 10,
+										precision: 2
+									},
+									{
+										name: 'about',
+										type: 'text'
+									},
+									{
+										name: 'instructions',
+										type: 'text'
+									},
+									{
+										name: 'opening_hours',
+										type: 'varchar'
+									},
+									{
+										name: 'open_on_weekends',
+										type: 'boolean'
+									}
+								]
+							}))
+
+						}
+
+						public async down(queryRunner: QueryRunner): Promise<void> {
+							await queryRunner.dropTable('orphanages');
+						}
+
+					}
+
+			# yarn typeorm migration:run
+		
+			using beekeeper studio portable to view the sqlite db
+		
+		* change param in tsconfig.json "strictPropertyInitialization": false so you wont need to init the properties on model classes
+
+		* enable experimental decorator on tsconfig.json
+		
+			"experimentalDecorators": true,
+			"emitDecoratorMetadata": true,
+		
+		* create class src/Models/Orphanage.ts
+			
+			import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+
+			@Entity('orphanages')
+			export default class Orphanage {
+				@PrimaryGeneratedColumn('increment')
+				id: number;
+
+				@Column()
+				name: string;
+
+				@Column()
+				latitude: number;
+
+				@Column()
+				longitude: number;
+
+				@Column()
+				about: string;
+
+				@Column()
+				instructions: string;
+
+				@Column()
+				opening_hours: string;
+
+				@Column()
+				open_on_weekends: boolean;
+			}
+			
+		* creating route to orphanage insertion on server.ts
+		
+			app.post('/orphanages', async (request, response) => {
+				console.log(request.body);
+
+				const { 
+					name,
+					latitude,
+					longitude,
+					about,
+					instructions,
+					opening_hours,
+					open_on_weekends
+				} = request.body;
+
+				const orphanagesRepository = getRepository(Orphanage);
+
+				const orphanage = orphanagesRepository.create({
+					name,
+					latitude,
+					longitude,
+					about,
+					instructions,
+					opening_hours,
+					open_on_weekends
+				});
+
+				await orphanagesRepository.save(orphanage);
+
+				return response.status(201).json(orphanage);
+			});
+		
+		
