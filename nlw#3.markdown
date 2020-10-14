@@ -559,4 +559,6 @@ by Rocketseat
 				return response.status(201).json(orphanage);
 			});
 		
-		
+	**Abstraction (MVC - Model, View, Controller)
+	
+		Separates de code in different folders following the MVC pattern.
