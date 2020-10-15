@@ -2,6 +2,12 @@ Brazilian Bootcamp
 NLW#3 (NEXT LEVEL WEEK #3)
 by Rocketseat
 
+# Technologies #
+
+	Backend - Node.js
+	Frontend Web - React / Typescript
+	Frontend Mobile - React Native
+
 # My Impressions #
 
 	This bootcamp was moderate hard to follow.
