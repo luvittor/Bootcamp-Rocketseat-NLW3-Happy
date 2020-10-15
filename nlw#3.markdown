@@ -617,5 +617,12 @@ by Rocketseat
 		
 		# yarn add multer
 		# yarn add @types/multer -D
+	
+	** Views
+	
+		ignoring this step: no notes taken
+	
+	**Handling Exceptions
+	
 		
-		
+	
