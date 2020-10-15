@@ -623,10 +623,12 @@ by Rocketseat
 		
 		# yarn add multer
 		# yarn add @types/multer -D
+		
+		# TODO in the end this is not working properly
 	
 	** Views
 	
-		ignoring this step: no notes taken
+		# TODO ignoring this step: no notes taken
 	
 	**Handling Errors
 	
@@ -643,3 +645,10 @@ by Rocketseat
 	
 		# yarn add cors
 		# yarn add @types/cors -D
+		
+
+# Workshop #3 #
+
+	** Addind SVG as marker on the map 
+	
+	
