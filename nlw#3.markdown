@@ -622,7 +622,18 @@ by Rocketseat
 	
 		ignoring this step: no notes taken
 	
-	**Handling Exceptions
+	**Handling Errors
 	
+		# yarn add express-async-errors
+	
+		https://github.com/luvittor/Bootcamp-Rocketseat-NLW3-Happy/commit/7153e0547fb7f1aa60f924d974f6de9a8a165afa
 		
+	**Data Validation
 	
+		# yarn add yup
+		# yarn add @types/yup -D
+		
+	**Allow server to be accessed by other address
+	
+		# yarn add cors
+		# yarn add @types/cors -D
