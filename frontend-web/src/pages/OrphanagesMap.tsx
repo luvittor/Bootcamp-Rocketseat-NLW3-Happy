@@ -10,20 +10,12 @@ import mapMarkerImg from '../images/map-marker.svg';
 
 // map
 import  { Map, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
 
 // icons
 import { FiPlus, FiArrowRight } from 'react-icons/fi';
 
 // customized image map marker
-import Leadlet from 'leaflet';
-const mapIcon = Leadlet.icon({
-    iconUrl: mapMarkerImg,
-    iconSize: [58,68],
-    iconAnchor: [29, 68],
-    popupAnchor: [170, 2]
-});
-
+import happyMapIcon from '../utils/happyMapIcon';
 
 function OrphanagesMap() {
     return (
@@ -55,7 +47,7 @@ function OrphanagesMap() {
                     // <TileLayer url={'https://api.mapbox.com/styles/v1/mapbox/dark-v18/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}'} />
                 }
 
-                <Marker icon={mapIcon} position={[-23.0176675, -45.5484235]}>
+                <Marker icon={happyMapIcon} position={[-23.0176675, -45.5484235]}>
                     <Popup closeButton={false} minWidth={240} maxWidth={240} className="map-popup">
                         Lar das Meninas
                         <Link to="/orphanages/1">
