@@ -2,7 +2,7 @@ Brazilian Bootcamp
 NLW#3 (NEXT LEVEL WEEK #3)
 by Rocketseat
 
-# Technologies #
+# Stack #
 
 	Backend - Node.js
 	Frontend Web - React / Typescript
